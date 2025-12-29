@@ -18,8 +18,8 @@ def call(map configMap) {
 	 course = "jenkins"
 	 apiVersion = ""
 	 acc_id = "406682759639"	
-	 project = "chakra"
-	 component = "catalogue"
+	 project = configMap.get('project')
+	 component = configMap.get('component')
 	 }
 	 options{
 	  disableConcurrentBuilds()
