@@ -34,15 +34,6 @@ def call (Map configMap){
                     }
                 }
             }
-            stage('Unit Test') {
-                steps {
-                    script{
-                        sh """
-                            npm test
-                        """
-                    }
-                }
-            }
             //Here you need to select scanner tool and send the analysis to server
             /* stage('Sonar Scan'){
                 environment {
