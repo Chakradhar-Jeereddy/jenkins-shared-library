@@ -1,6 +1,6 @@
 // call function to use pipleline as function
 def call (Map mymap){
- pipleline{
+ pipeline{
     // These are prebuild sections
     agent{
         node{
