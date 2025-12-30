@@ -1,5 +1,5 @@
 // call function to use pipleline as function
-def call(Map mymap){
+def call (Map mymap){
  pipleline{
     // These are prebuild sections
     agent{
