@@ -11,7 +11,7 @@ def call(Map mymap){
         appVersion = mymap.get("appVersion")
         ACC_ID = mymap.get("acc_id")
         PROJECT = mymap.get("project")
-        //COMPONENT = maymap.get("component")
+        COMPONENT = mymap.get("component")
         REGION = mymap.get("region")
         deploy_to = mymap.get("deploy_to")
     }
