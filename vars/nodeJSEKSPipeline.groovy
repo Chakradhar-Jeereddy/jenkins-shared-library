@@ -41,6 +41,21 @@ def call (Map mymap){
              }
             }
         }
+        stage('Trigger Dev Deploy'){
+            steps{
+                script{
+                    build job: '../catalogue-deploy',
+                    wait: false,  //Wait for completion
+                    propagate: false //Propogate status
+                      parameters: [
+                          string(name: 'appVersion', value: "${appVersion}"),
+                          // You can add more parameters here
+                          string(name: 'deploy_to', value: "dev")
+                      ]
+         
+                }
+            }
+        }
     }
     post{
       always{
