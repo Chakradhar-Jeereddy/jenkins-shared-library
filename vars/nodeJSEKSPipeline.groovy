@@ -21,9 +21,11 @@ def call (Map mymap){
     stages{
         stage('Read Version'){
             steps{
-            def packageJson = readJSON file: 'package.json'
-            appVersion = packageJson.version
-            echo "app version: ${appVersion}"
+                script{
+                def packageJson = readJSON file: 'package.json'
+                appVersion = packageJson.version
+                echo "app version: ${appVersion}"
+                }
             }
         }
         stage('Build image'){
