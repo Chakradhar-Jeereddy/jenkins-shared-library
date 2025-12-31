@@ -44,7 +44,8 @@ def call (Map mymap){
         stage('Trigger Dev Deploy'){
             steps{
                 script{
-                    build job: '../${COMPONENT}-deploy',
+                    echo ${COMPONENT}
+                    build job: '../"${COMPONENT}"-deploy',
                     wait: false,  //Wait for completion
                     propagate: false //Propogate status
                       parameters: [
