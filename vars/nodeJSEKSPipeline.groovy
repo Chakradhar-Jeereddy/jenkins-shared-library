@@ -20,18 +20,22 @@ def call (Map mymap){
     // These are build sections
     stages{
         stage('Read Version'){
+            steps{
             def packageJson = readJSON file: 'package.json'
             appVersion = packageJson.version
             echo "app version: ${appVersion}"
+            }
         }
         stage('Build image'){
-            script{
-             withAWS(region:'us-east-1', credentials:'aws-creds'){
+            steps{
+             script{
+              withAWS(region:'us-east-1', credentials:'aws-creds'){
                 sh"""
                 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com
                 docker build -t ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com/${PROJECT}/${COMPONENT}:${appVersion}
                 docker push ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com/${PROJECT}/${COMPONENT}:${appVersion}
                 """
+              }
              }
             }
         }
