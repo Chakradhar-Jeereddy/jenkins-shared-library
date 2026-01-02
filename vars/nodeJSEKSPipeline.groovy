@@ -28,6 +28,24 @@ def call (Map mymap){
                 }
             }
         }
+        stage('Install Dependencies') {
+                steps {
+                    script{
+                        sh """
+                            npm install
+                        """
+                    }
+                }
+        }
+        stage('Unit Test') {
+                steps {
+                    script{
+                        sh """
+                            echo test
+                        """
+                    }
+                }
+        }
         stage('Build image'){
             steps{
              script{
