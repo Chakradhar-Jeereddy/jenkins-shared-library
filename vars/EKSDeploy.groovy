@@ -34,7 +34,7 @@ def call(Map mymap){
                             aws eks update-kubeconfig --region ${REGION} --name ${PROJECT}-${deploy_to}
                             kubectl get nodes
                             echo ${deploy_to}, echo ${appVersion}
-                            helm upgrade --install ${COMPONENT} -f values-${deploy_to}.yaml -n ${PROJECT} .
+                            helm upgrade --install ${COMPONENT} -f values-${deploy_to}.yaml -n ${PROJECT} --atomic --wait --timeout=5m .
                         """
                     }
                 }
