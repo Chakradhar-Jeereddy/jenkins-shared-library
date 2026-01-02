@@ -32,7 +32,7 @@ def call (Map mymap){
                 steps {
                     script{
                         sh """
-                            maven clean package
+                            mvn clean package
                         """
                     }
                 }
